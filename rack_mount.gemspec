@@ -12,7 +12,9 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'iconv'
   s.add_runtime_dependency 'merb-core'
 
-  s.add_development_dependency 'rails', '>= 2.3.18'
+  s.add_development_dependency 'appraisal'
+  s.add_development_dependency 'rails', '~> 2.3'
+  s.add_development_dependency "rake", "~> 13"
   s.add_development_dependency 'pry'
   s.add_development_dependency 'yaml'
   s.add_development_dependency 'test-unit'

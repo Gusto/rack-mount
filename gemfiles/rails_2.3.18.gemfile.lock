@@ -1,5 +1,5 @@
 PATH
-  remote: .
+  remote: ..
   specs:
     rack_mount (0.1)
       activesupport
@@ -63,7 +63,7 @@ DEPENDENCIES
   appraisal
   pry
   rack_mount!
-  rails (~> 2.3)
+  rails (= 2.3.18)
   rake (~> 13)
   test-unit
   yaml

@@ -1,4 +1,3 @@
-require 'action_controller'
 require 'rack/mount'
 require 'rubygems'
 require 'test/unit'
@@ -48,7 +47,7 @@ module TestHelper
       "REQUEST_METHOD" => method.to_s.upcase,
       "PATH_INFO" => path
     })
-    # binding.pry
+
     if result
       @env = YAML.load(result[2][0])
     else

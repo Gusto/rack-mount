@@ -1,0 +1,19 @@
+steps:
+  - name: ":rspec: rails 2.3"
+    command: "docker-compose -f docker-compose.yml run app bundle exec appraisal rails-2.3.18 ./bin/rake"
+    agents:
+      queue: single
+  - name: ":rspec: rack-mount"
+    command: "docker-compose -f docker-compose.yml run app bundle exec ./bin/rake"
+    agents:
+      queue: single
+  - wait
+  - block: ':rocket: Publish to Gem Server'
+    prompt: 'Publish this gem to the server?'
+    branches: 'master'
+  - name: ':ruby: Build & Publish gem'
+    command: 'docker-compose build && docker-compose --project-name $BUILDKITE_JOB_ID run app sh -c "gem build quickbase.gemspec && gem push --config-file ./.gem/credentials --key gemstash --host https://gemstash.zp-int.com/private quickbase-*.gem"'
+    agents:
+      queue: gemstash-publish
+    branches: 'master'
+

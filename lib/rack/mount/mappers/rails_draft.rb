@@ -1,3 +1,4 @@
+require 'action_controller'
 require 'active_support/inflector'
 
 module Rack
@@ -5,7 +6,6 @@ module Rack
     module Mappers
       class RailsDraft
         def initialize(set)
-          require 'action_controller'
           @set = set
         end
 
