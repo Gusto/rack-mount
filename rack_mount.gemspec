@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'rack_mount'
-  s.version     = '0.1'
+  s.version     = '0.9'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Joshua Peek']
   s.homepage    = 'https://github.com/Gusto/rack-mount'
