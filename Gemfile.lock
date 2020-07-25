@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rack_mount (0.1)
+    rack_mount (0.9)
       activesupport
       iconv
       merb-core
