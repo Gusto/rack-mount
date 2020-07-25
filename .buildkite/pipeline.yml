@@ -8,7 +8,7 @@ steps:
     prompt: 'Publish this gem to the server?'
     branches: 'master'
   - name: ':ruby: Build & Publish gem'
-    command: 'docker-compose build && docker-compose --project-name $BUILDKITE_JOB_ID run app sh -c "gem build rack-mount.gemspec && gem push --config-file ./.gem/credentials --key gemstash --host https://gemstash.zp-int.com/private rack-mount-*.gem"'
+    command: 'docker-compose build && docker-compose --project-name $BUILDKITE_JOB_ID run app sh -c "gem build rack_mount.gemspec && gem push --config-file ./.gem/credentials --key gemstash --host https://gemstash.zp-int.com/private rack_mount-*.gem"'
     agents:
       queue: gemstash-publish
     branches: 'master'

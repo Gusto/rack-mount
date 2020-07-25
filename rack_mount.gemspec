@@ -1,6 +1,6 @@
 
 Gem::Specification.new do |s|
-  s.name        = 'rack_mount'
+  s.name        = 'rack-mount'
   s.version     = '0.9'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Joshua Peek']
