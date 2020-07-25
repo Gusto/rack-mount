@@ -1,3 +1,5 @@
+require 'action_controller'
+
 module Rack
   module Mount
     module Mappers
@@ -10,7 +12,6 @@ module Rack
         end
 
         def draw(&block)
-          require 'action_controller'
           yield ActionController::Routing::RouteSet::Mapper.new(self)
         end
 

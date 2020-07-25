@@ -1,9 +1,8 @@
+require 'action_controller'
+require 'rack/mount'
 require 'rubygems'
 require 'test/unit'
 require 'yaml'
-
-require 'rack/mount'
-
 require 'basic_recognition_tests'
 
 EchoApp = lambda { |env|
@@ -23,36 +22,37 @@ end
 
 module TestHelper
   private
-    def env
-      @env
-    end
 
-    def get(path)
-      process(:get, path)
-    end
+  def env
+    @env
+  end
 
-    def post(path)
-      process(:post, path)
-    end
+  def get(path)
+    process(:get, path)
+  end
 
-    def put(path)
-      process(:put, path)
-    end
+  def post(path)
+    process(:post, path)
+  end
 
-    def delete(path)
-      process(:delete, path)
-    end
+  def put(path)
+    process(:put, path)
+  end
 
-    def process(method, path)
-      result = @app.call({
-        "REQUEST_METHOD" => method.to_s.upcase,
-        "PATH_INFO" => path
-      })
+  def delete(path)
+    process(:delete, path)
+  end
 
-      if result
-        @env = YAML.load(result[2][0])
-      else
-        @env = nil
-      end
+  def process(method, path)
+    result = @app.call({
+      "REQUEST_METHOD" => method.to_s.upcase,
+      "PATH_INFO" => path
+    })
+    # binding.pry
+    if result
+      @env = YAML.load(result[2][0])
+    else
+      @env = nil
     end
+  end
 end

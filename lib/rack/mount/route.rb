@@ -40,9 +40,10 @@ module Rack
         path = env["PATH_INFO"]
 
         if (@method.nil? || method == @method) && path =~ @recognizer
-          routing_args, param_matches = {}, $~.captures
-          @params.each_with_index { |p,i| routing_args[p] = param_matches[i] }
-          env["rack.routing_args"] = routing_args.merge!(@defaults)
+          routing_args = {}
+          param_matches = $~.captures
+          @params.each_with_index { |p, i| routing_args[p] = param_matches[i] }
+          env['rack.routing_args'] = routing_args.merge!(@defaults)
           @app.call(env)
         else
           SKIP_RESPONSE

@@ -1,11 +1,11 @@
 module Rack
   module Mount
-    autoload :Bucket, 'rack/mount/bucket'
-    autoload :GarbageCompactor, 'rack/mount/garbage_compactor'
-    autoload :Mappers, 'rack/mount/mappers'
-    autoload :Route, 'rack/mount/route'
-    autoload :RouteSet, 'rack/mount/route_set'
-    autoload :SegmentRegexp, 'rack/mount/segment_regexp'
-    autoload :SegmentString, 'rack/mount/segment_string'
+    require 'rack/mount/bucket'
+    require 'rack/mount/garbage_compactor'
+    require 'rack/mount/mappers'
+    require 'rack/mount/route'
+    require 'rack/mount/route_set'
+    require 'rack/mount/segment_regexp'
+    require 'rack/mount/segment_string'
   end
 end
