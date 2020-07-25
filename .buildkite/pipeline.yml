@@ -3,10 +3,6 @@ steps:
     command: "docker-compose -f docker-compose.yml run app bundle exec appraisal rails-2.3.18 ./bin/rake"
     agents:
       queue: single
-  - name: ":rspec: rack-mount"
-    command: "docker-compose -f docker-compose.yml run app bundle exec ./bin/rake"
-    agents:
-      queue: single
   - wait
   - block: ':rocket: Publish to Gem Server'
     prompt: 'Publish this gem to the server?'
